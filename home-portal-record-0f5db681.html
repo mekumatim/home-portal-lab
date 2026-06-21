@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 稳定入口说明页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f9fc;
+      color: #1a2e2f;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    /* 网格卡片背景装饰 */
+    .page-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(60, 150, 140, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(60, 150, 140, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    /* hero 简洁模块 */
+    .hero {
+      margin-bottom: 2.4rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 2px solid #cde0dc;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #0f4b47;
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #3a6b67;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .hero .sub span {
+      background: #d5eae6;
+      padding: 0.1rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #1a5b56;
+    }
+    /* 卡片组 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 30, 30, 0.04);
+      border: 1px solid #d2e4e0;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(30, 90, 80, 0.06);
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #0a4b47;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h2::before {
+      content: "◇";
+      color: #379b8f;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    .card p {
+      margin-top: 0.4rem;
+      color: #1d3a37;
+      font-size: 0.98rem;
+    }
+    .inset-quote {
+      margin: 2rem 0 1.6rem 0;
+      padding: 1.2rem 1.6rem;
+      background: #e2f0ed;
+      border-left: 5px solid #2f8d81;
+      border-radius: 12px;
+      color: #1d423f;
+      font-style: normal;
+    }
+    .inset-quote strong {
+      color: #0f5f58;
+    }
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 2rem 0 1.2rem;
+    }
+    .faq-item {
+      background: transparent;
+      border-bottom: 1px dashed #b8d0cb;
+      padding-bottom: 0.7rem;
+    }
+    .faq-item .q {
+      font-weight: 500;
+      color: #1b5f59;
+      font-size: 0.95rem;
+    }
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #2b4c47;
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #2e8c80;
+      color: #1d6b62;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-outline:hover {
+      background: #2e8c8011;
+      border-color: #1f786d;
+    }
+    .footer-note {
+      margin-top: 2.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #c8dbd6;
+      font-size: 0.85rem;
+      color: #3b6761;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .inline-link {
+      color: #176b61;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #91c3bb;
+      font-weight: 450;
+    }
+    .inline-link:hover {
+      color: #0b534a;
+      text-decoration-color: #0b534a;
+    }
+    @media (max-width: 540px) {
+      body { padding: 1.5rem 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .card { padding: 1.3rem; }
+      .footer-note { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-grid"></div>
+<div class="container content">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>开云 · 稳定入口说明</h1>
+    <div class="sub">
+      <span>基于博客式导览</span>
+      <span style="background:#ebf3f1;">页面索引</span>
+    </div>
+    <p style="margin-top: 1rem; font-size: 1rem; color: #28534e; max-width: 640px;">
+      这篇介绍从访问逻辑与页面结构出发，梳理了 <a href="https://home-portal-kai-yun.com" class="inline-link">开云</a> 作为固定访问点的设计意图。以下内容围绕入口稳定性、内容组织与常见疑问展开。
+    </p>
+  </div>
+
+  <!-- 正文段落卡片 -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>入口的定位与角色</h2>
+      <p>对多数使用者而言，一个清晰、长期不变的地址是建立信任的前提。<strong>开云</strong> 的主页地址被设计为可依赖的基点，不随营销活动或临时推广而频繁变动。页面本身同时承担索引功能，将分散的信息归拢到一处。</p>
+      <p>在信息架构中，这个入口更像是一个稳定的“目录屏”——不堆砌装饰，重点在于让访客快速理解站点的内容边界与后续操作方向。</p>
+    </div>
+
+    <div class="card">
+      <h2>页面说明与阅读顺序</h2>
+      <p>当前页面采用简洁的博客式排版：标题点明主题，导语交代背景，正文以卡片段落展开，引用区块补充关键提示，末尾设置 FAQ 摘要以回应常见思路。</p>
+      <p>这种结构适合需要快速获取概况的访客。每一段都保持独立，同时又围绕“入口的稳定性和说明性”形成整体叙事。阅读时可以按顺序浏览，也可以直接跳转到感兴趣的部分。</p>
+    </div>
+
+    <div class="card">
+      <h2>场景：日常使用与重新发现</h2>
+      <p>无论是首次接触还是中途返回，一个不变的地址降低了记忆负担。假设你收藏了 <a href="https://home-portal-kai-yun.com" class="inline-link">开云</a> 主页，数月后再打开，看到的依然是同一套清晰的导航与说明，而不是被重定向到临时活动页。</p>
+      <p>这种稳定性对两类场景尤其友好：一是需要定期查阅信息的使用者，二是希望将地址分享给他人时，不用担心链接失效或内容错位。</p>
+    </div>
+  </div>
+
+  <!-- 引用提示 -->
+  <div class="inset-quote">
+    <strong>引用提示</strong> · 本站点内容均以客观说明为原则，不包含诱导性表述或夸大承诺。所有链接与描述均指向实际存在的页面功能，建议结合自身需求判断信息适用性。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div style="margin-top: 1.8rem;">
+    <h2 style="font-size: 1.2rem; font-weight: 500; color: #0a4b47; margin-bottom: 0.5rem;">常见思考摘要</h2>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="q">这个入口与其他页面有什么区别？</div>
+        <div class="a">主页定位为固定访问点，内容长期维持说明与索引属性，结构与文案更新以清晰为前提，不跟随短期推广节奏变化。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">页面内容会频繁变动吗？</div>
+        <div class="a">核心说明段落保持稳定；如有必要优化表达或补充新信息，会保留原有逻辑框架，并在页面标注更新日期。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">如何确认当前页面是最新版？</div>
+        <div class="a">可通过 <a href="https://home-portal-kai-yun.com" class="inline-link">开云</a> 主页获取最新说明页链接；页面地址本身即为固定入口，建议直接使用。</div>
+      </div>
+    </div>
+    <a href="https://home-portal-kai-yun.com" class="btn-outline">开云</a>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <span>内容整理 · 稳定入口说明</span>
+    <span style="display: flex; gap: 0.3rem; align-items: center;">
+      <span style="opacity: 0.6;">访问句</span>
+      <span style="font-weight: 350;">开云主页已就绪</span>
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
